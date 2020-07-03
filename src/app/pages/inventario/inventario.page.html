@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title class="ion-text-center">Inventario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-badge class="banderaA">CREAR INVENTARIO</ion-badge>
+
+  <form [formGroup]="inventarioForm" (ngSubmit)="dbData.PDFInventario()">
+
+    <ion-card>
+      <ion-item>
+        <ion-icon color="secondary" slot="start" name="qr-code-outline"></ion-icon>
+        <ion-label position="floating">Código de inventario</ion-label>
+        <ion-input type="text" formControlName="codigo"></ion-input>
+        <div class="alert-danger" *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+          <div class="container-error-de-mensaje" *ngIf="codigo.errors.required">
+            Ingrese un código de inventario
+          </div>
+          <div class="container-error-de-mensaje" *ngIf="codigo.errors.pattern">
+            Ingrese un código de inventario válido
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar" color="secondary"></ion-icon>
+        <ion-datetime value="" doneText="Aceptar" cancelText="Cancelar" placeholder="Fecha de entrega"
+          displayFormat="DD/MM/YYYY" formControlName="fechaEntrega"></ion-datetime>
+        <div class="alert-danger" *ngIf="fechaEntrega.invalid && (fechaEntrega.dirty || fechaEntrega.touched)">
+          <div class="container-error-de-mensaje" *ngIf="fechaEntrega.errors.required">
+            Ingrese una fecha de entrega
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="secondary" slot="start" name="person-circle-outline"></ion-icon>
+        <ion-label position="floating">Creador</ion-label>
+        <ion-input type="text" formControlName="creador"></ion-input>
+        <div class="alert-danger" *ngIf="creador.invalid && (creador.dirty || creador.touched)">
+          <div class="container-error-de-mensaje" *ngIf="creador.errors.required">
+            Ingrese un nombre y apellido
+          </div>
+          <div class="container-error-de-mensaje" *ngIf="creador.errors.pattern">
+            Ingrese un nombre y apellido válido
+          </div>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="secondary" slot="start" name="bookmark-outline"></ion-icon>
+        <ion-select placeholder="Tipo" color="secondary" formControlName="tipo">
+          <ion-select-option value="V">V</ion-select-option>
+          <ion-select-option value="E">E</ion-select-option>
+          <ion-select-option value="R">RIF</ion-select-option>
+        </ion-select>
+        <div class="alert-danger" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
+          <div class="container-error-de-mensaje" *ngIf="tipo.errors.required">
+            Seleccione un tipo de documento
+          </div>
+        </div>
+        <ion-input placeholder="Número de documento" type="text" formControlName="numDocument"></ion-input>
+        <div class="alert-danger" *ngIf="numDocument.invalid && (numDocument.dirty || numDocument.touched)">
+          <div class="container-error-de-mensaje" *ngIf="numDocument.errors.required">
+            Ingrese el número de documento
+          </div>
+          <div class="container-error-de-mensaje" *ngIf="numDocument.errors.pattern">
+            Ingrese un número de documento válido
+          </div>
+        </div>
+      </ion-item>
+    </ion-card>
+  </form>
+  
+
+  <div class="btn">
+    <ion-button fill="solid" color="secondary" (click)="dbData.PDFInventario(creador,fechaEntrega, tipo, numDocument, codigo)" [disabled]="!inventarioForm.valid">CREAR</ion-button>
+    <ion-button fill="solid" color="danger" (click)="Reset()">LIMPIAR</ion-button>
+  </div>
+
+</ion-content>
+

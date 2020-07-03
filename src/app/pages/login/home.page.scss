@@ -1,0 +1,42 @@
+.logo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10em;
+  left: calc(25% - 2.5em);
+}
+
+.prueba {
+  margin-top: 5em;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, .3);
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  border-radius: 1em;
+  padding: 2em 0.1em;
+}
+
+ion-content{
+  --ion-background-color: #cdd9e5;
+}
+
+ion-card {
+  margin-top: 5em;
+  
+}
+
+ion-item {
+  --color: #000;
+  --ion-background-color: #f3f4f5;
+  width: 20em;
+}
+
+ion-button {
+  margin: 2em;
+}

@@ -1,0 +1,185 @@
+<ion-header>
+  <ion-toolbar color="secondary" >  
+    <ion-title class="ion-text-center">Salida</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-badge class="banderaA">AYUDA SOCIAL</ion-badge>
+
+  <form [formGroup]="salidaForm" (ngSubmit)="Guardar()">
+
+ <ion-card>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="man-outline"></ion-icon>
+    <ion-label position="floating">Nombre y apellido</ion-label>
+    <ion-input type="text" formControlName="nombreyapellido"></ion-input>
+    <div class="alert-danger" *ngIf="nombreyapellido.invalid && (nombreyapellido.dirty || nombreyapellido.touched)">
+      <div class="container-error-de-mensaje" *ngIf="nombreyapellido.errors.required">
+        Ingrese un nombre y apellido
+      </div> 
+      <div class="container-error-de-mensaje" *ngIf="nombreyapellido.errors.pattern">
+        Ingrese un nombre y apellido válido
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="bookmark-outline"></ion-icon>
+    <ion-select placeholder="Tipo" color="secondary" formControlName="tipo">
+      <ion-select-option value="V">V</ion-select-option>
+      <ion-select-option value="E">E</ion-select-option>
+      <ion-select-option value="R">RIF</ion-select-option>
+    </ion-select>
+    <div class="alert-danger" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
+      <div class="container-error-de-mensaje" *ngIf="tipo.errors.required">
+        Seleccione un tipo de documento
+      </div>
+    </div>
+    <ion-input placeholder="Número documento" type="text" formControlName="numDocument"></ion-input>
+    <div class="alert-danger" *ngIf="numDocument.invalid && (numDocument.dirty || numDocument.touched)">
+      <div class="container-error-de-mensaje" *ngIf="numDocument.errors.required">
+        Ingrese el número de documento
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="numDocument.errors.pattern">
+        Ingrese un número de documento válido
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="home-outline"></ion-icon>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input type="text" formControlName="direccion"></ion-input>
+    <div class="alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+      <div class="container-error-de-mensaje" *ngIf="direccion.errors.required">
+        Ingrese una dirección
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="call-outline"></ion-icon>
+    <ion-label position="floating">Teléfono</ion-label>
+    <ion-input type="text" formControlName="telefono"></ion-input>
+    <div class="alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+      <div class="container-error-de-mensaje" *ngIf="telefono.errors.required">
+        Ingrese un número telefónico
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="telefono.errors.pattern">
+        Ingrese un número telefónico válido (sin letras)
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="telefono.errors.maxlength">
+        Ingrese un número telefónico válido (se excedió del límite de dígitos permitido) 
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="telefono.errors.minlength">
+        Ingrese un número telefónico válido (se necesitan más dígitos)
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="medkit-outline"></ion-icon>
+    <ion-label position="floating">Medicamento o Insumo</ion-label>
+    <ion-select placeholder="Seleccione un medicamento" color="secondary" value="" formControlName="medicamento" interface="action-sheet" mode="ios" cancelText="Cancelar">
+      <ion-select-option *ngFor="let medicamento of medicamentos">{{ medicamento.medicamento }}</ion-select-option>
+      <!-- <ion-select-option value="Paracetamol">Paracetamol</ion-select-option>
+      <ion-select-option value="Aspirina">Aspirina</ion-select-option>
+      <ion-select-option value="Ibuprofeno">Ibuprofeno</ion-select-option>
+      <ion-select-option value="Morfina">Morfina</ion-select-option>
+      <ion-select-option value="Ketoprofeno">Ketoprofeno</ion-select-option>
+      <ion-select-option value="Diclofenaco">Diclofenaco</ion-select-option>
+      <ion-select-option value="Salbutamol ">Salbutamol </ion-select-option> -->
+    </ion-select>
+    <div class="alert-danger" *ngIf="medicamento.invalid && (medicamento.dirty || medicamento.touched)">
+      <div class="container-error-de-mensaje" *ngIf="medicamento.errors.required">
+        Seleccione un medicamento
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="podium-outline"></ion-icon>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input type="text" formControlName="cantidad"></ion-input>
+    <div class="alert-danger" *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)">
+      <div class="container-error-de-mensaje" *ngIf="cantidad.errors.pattern">
+        Ingrese una cantidad válida
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="cantidad.errors.max">
+        Ingrese una cantidad igual o menor a 500
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="cantidad.errors.min">
+        Ingrese una cantidad igual o mayor a 1
+      </div>
+    </div>
+  </ion-item>
+
+</ion-card>
+
+  <ion-badge class="banderaB">ENTREGADO</ion-badge>
+
+  <ion-card>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="man-outline"></ion-icon>
+    <ion-label position="floating">Nombre y apellido</ion-label>
+    <ion-input type="text" formControlName="nombreyapellido2"></ion-input>
+    <div class="alert-danger" *ngIf="nombreyapellido2.invalid && (nombreyapellido2.dirty || nombreyapellido2.touched)">
+      <div class="container-error-de-mensaje" *ngIf="nombreyapellido2.errors.required">
+        Ingrese un nombre y apellido
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="nombreyapellido2.errors.pattern">
+        Ingrese un nombre y apellido válido
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon color="secondary" slot="start" name="bookmark-outline"></ion-icon>
+    <ion-select placeholder="Tipo" color="secondary" formControlName="tipo2">
+      <ion-select-option value="V">V</ion-select-option>
+      <ion-select-option value="E">E</ion-select-option>
+      <ion-select-option value="R">RIF</ion-select-option>
+    </ion-select>
+    <div class="alert-danger" *ngIf="tipo2.invalid && (tipo2.dirty || tipo2.touched)">
+      <div class="container-error-de-mensaje" *ngIf="tipo2.errors.required">
+        Seleccione un tipo de documento
+      </div>
+    </div>
+    <ion-input placeholder="Número documento" type="text" formControlName="numDocument2"></ion-input>
+    <div class="alert-danger" *ngIf="numDocument2.invalid && (numDocument2.dirty || numDocument2.touched)">
+      <div class="container-error-de-mensaje" *ngIf="numDocument2.errors.required">
+        Ingrese el número de documento
+      </div>
+      <div class="container-error-de-mensaje" *ngIf="numDocument2.errors.pattern">
+        Ingrese un número de documento válido
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="calendar" color="secondary"></ion-icon>
+    <ion-datetime value="" doneText="Aceptar" cancelText="Cancelar" placeholder="Ingrese una fecha" displayFormat="DD/MM/YYYY" formControlName="fechaEntrega" min="2020-01-01" max="2023-31-12"></ion-datetime>
+    <div class="alert-danger" *ngIf="fechaEntrega.invalid && (fechaEntrega.dirty || fechaEntrega.touched)">
+      <div class="container-error-de-mensaje" *ngIf="fechaEntrega.errors.required">
+        Ingrese una fecha de entrega
+      </div>
+    </div>
+  </ion-item>
+
+</ion-card>
+
+</form>
+
+  <div class="btn">
+    <ion-button fill="solid" color="secondary" (click)="Guardar()" [disabled]="!salidaForm.valid">GUARDAR</ion-button>
+    <ion-button fill="solid" color="danger" (click)="Reset()">LIMPIAR</ion-button>  
+  </div>
+  
+
+</ion-content>
+
+

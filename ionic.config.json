@@ -1,0 +1,7 @@
+{
+  "name": "AppAlmacen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title class="ion-text-center">Reporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card mode="ios" button="true" (click)="dbData.PDFReporteEntrada()">
+    <ion-card-content class="ion-text-center">
+      <b class="ion-text-center">CREAR REPORTE ENTRADA</b>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card mode="ios" button="true" (click)="dbData.PDFReporteSalida()">
+    <ion-card-content class="ion-text-center">
+      <b class="ion-text-center">CREAR REPORTE SALIDA</b>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card mode="ios" button="true" (click)="dbData.PDFReporteDotacionInterna()">
+    <ion-card-content class="ion-text-center">
+      <b class="ion-text-center">CREAR REPORTE DOTACIÓN INTERNA</b>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card mode="ios" button="true" (click)="dbData.PDFReporteIntercambio()">
+    <ion-card-content class="ion-text-center">
+      <b class="ion-text-center">CREAR REPORTE INTERCAMBIO</b>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
