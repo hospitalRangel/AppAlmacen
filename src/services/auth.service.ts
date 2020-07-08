@@ -519,6 +519,8 @@ export class AuthService {
 
     const data = [['Medicamento', 'Cantidad']];
 
+    const rif = 'RIF: G-20003312';
+
     this.data.forEach(user => {
       data.push([user.medicamento, user.cantidad]);
       console.log('Recorriendo', user);
@@ -559,6 +561,12 @@ export class AuthService {
         },
         {
         text: 'Villa de Cura',
+        width: '*',
+        alignment: 'left',
+        style: 'subheader'
+      },
+      {
+        text: rif,
         width: '*',
         alignment: 'left',
         style: 'subheader'
@@ -647,6 +655,8 @@ export class AuthService {
 
     const data = [['Medicamento', 'Cantidad', 'Fecha de Entrada', 'Fecha de Vencimiento']];
 
+    const rif = 'RIF: G-20003312';
+
     this.data.forEach(user => {
       data.push([user.medicamento, user.cantidad, user.fechadeEntrada, user.fechadeVencimiento]);
       console.log('Recorriendo', user);
@@ -686,11 +696,17 @@ export class AuthService {
           alignment: 'center'
         },
         {
-        text: 'Villa de Cura',
-        width: '*',
-        alignment: 'left',
-        style: 'subheader'
-      },
+          text: 'Villa de Cura',
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
+        {
+          text: rif,
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
       // {
       //   text: 'Código inventario: ' + codigo,
       //   width: '*',
@@ -775,6 +791,8 @@ export class AuthService {
 
     const data = [['Medicamento', 'Cantidad', 'Fecha de Entrega']];
 
+    const rif = 'RIF: G-20003312';
+
     this.data.forEach(user => {
       data.push([user.medicamento, user.cantidad, user.fechaEntrega]);
       console.log('Recorriendo', user);
@@ -814,11 +832,17 @@ export class AuthService {
           alignment: 'center'
         },
         {
-        text: 'Villa de Cura',
-        width: '*',
-        alignment: 'left',
-        style: 'subheader'
-      },
+          text: 'Villa de Cura',
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
+        {
+          text: rif,
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
       // {
       //   text: 'Código inventario: ' + codigo,
       //   width: '*',
@@ -903,6 +927,8 @@ export class AuthService {
 
     const data = [['Medicamento Solicitado', 'Cantidad Solicitada', 'Cantidad Despachada', 'Area', 'Fecha de Entrega']];
 
+    const rif = 'RIF: G-20003312';
+
     this.data.forEach(user => {
       data.push([user.medicamentoSolicitado, user.cantidadSolicitada, user.cantidadDespachada, user.area, user.fechaEntrega]);
       console.log('Recorriendo', user);
@@ -942,11 +968,17 @@ export class AuthService {
           alignment: 'center'
         },
         {
-        text: 'Villa de Cura',
-        width: '*',
-        alignment: 'left',
-        style: 'subheader'
-      },
+          text: 'Villa de Cura',
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
+        {
+          text: rif,
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
       // {
       //   text: 'Código inventario: ' + codigo,
       //   width: '*',
@@ -1031,6 +1063,8 @@ export class AuthService {
 
     const data = [['Nombre Institucion', 'Medicamento Recibido', 'Cantidad Recibida', 'Medicamento Cambiado', 'Cantidad Cambiada', 'Fecha de Entrega']];
 
+    const rif = 'RIF: G-20003312';
+
     this.data.forEach(user => {
       data.push([
         user.nombreInstitucion,
@@ -1076,11 +1110,17 @@ export class AuthService {
           alignment: 'center'
         },
         {
-        text: 'Villa de Cura',
-        width: '*',
-        alignment: 'left',
-        style: 'subheader'
-      },
+          text: 'Villa de Cura',
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
+        {
+          text: rif,
+          width: '*',
+          alignment: 'left',
+          style: 'subheader'
+        },
       // {
       //   text: 'Código inventario: ' + codigo,
       //   width: '*',
